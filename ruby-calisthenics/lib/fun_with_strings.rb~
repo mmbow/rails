@@ -1,0 +1,31 @@
+module FunWithStrings
+
+  def palindrome?
+   self.downcase.gsub(/\W+/i,'') == self.downcase.gsub(/\W+/i,'').reverse
+  end
+
+  def count_words
+     frequencies = Hash.new(0)
+	 words = self.gsub(/[^a-z0-9\s]/i, "")
+     words.downcase!
+	 words = words.split(" ")
+	 words.each { |key| frequencies[key]+=1}
+     frequencies
+  end
+
+
+  def anagram_groups
+    array = {}
+	anagram = self.split(" ")
+	anagram.each {|x| array = x}
+  	array.each { |x| x.to_i}
+
+	collect return a array
+  end
+end
+
+# make all the above functions available as instance methods on Strings:
+
+class String
+  include FunWithStrings
+end
